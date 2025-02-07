@@ -1,0 +1,87 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #f0f0f0;
+        }
+        .card {
+            background: rgb(31, 182, 56);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border-color: red;
+        }
+        .social-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .social-links a {
+            text-decoration: none;
+            color: #b5000f;
+        }
+        h1 {
+            color: #b5001e;
+        }
+        @media (max-width: 480px) {
+            .card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="./images/IMG_20211126_162918.jpg" alt="Profile" class="profile-pic" data-testid="profilePicture">
+        <h1 data-testid="fullName">Luqman Sulayman Babatunde</h1>
+        <h2 data-testid="jobTitle">Frontend Developer</h2>
+        <p data-testid="shortBio">Passionate about creating user-friendly web experiences. Currently mastering React.js and responsive design.</p>
+        <p data-testid="currentLocation">Kano, Nigeria</p>
+        <a href="https://mail.google.com/mail/" data-testid="emailAddress">sulaymanluqman56@gmail.com</a>
+        <ul class="social-links" data-testid="socialLinks">
+            <li><a href="https://github.com/Luqman-Sulayman" target="_blank">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/luqman-sulayman-41a842269/" target="_blank">LinkedIn</a></li>
+            <li><a href="https://x.com/home?lang=en" target="_blank">Twitter</a></li>
+        </ul>
+        <div data-testid="currentTimeUTC" id="time"></div>
+    </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const utcTime = now.toUTCString().split(' ')[4];
+            document.getElementById('time').textContent = `Current UTC Time: ${utcTime}`;
+        }
+        updateTime();
+    </script>
+</body>
+</html> 
